@@ -1,6 +1,6 @@
 # Faculdade_SENAI
 
-## :united_states: English 
+## English 
 
 - Repository used to place the work carried out by SENAI College. Some works were carried out for learning purposes, others were carried out according to the demands of the teachers.
 Feel free to use and modify them at will! :D
