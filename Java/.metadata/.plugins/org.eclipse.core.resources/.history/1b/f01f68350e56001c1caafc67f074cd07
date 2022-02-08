@@ -1,0 +1,31 @@
+package principal;
+
+import java.awt.*;
+import java.sql.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TelaLogin {
+	
+	private JFrame frame;
+	private BD bd;
+	
+	
+	public TelaLogin() {
+		montarTela();
+	}
+	
+	private void montarTela(){
+		frame = new JFrame("Login");
+		frame.setLayout(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setBackground(new Color(47, 161, 197));
+		//initComponents();
+		//defineEvents();
+
+		frame.pack();
+		frame.setBounds(350,150,700,500);
+		frame.setVisible(true);
+		bd = new BD();
+	}
+}

@@ -1,0 +1,69 @@
+package principal;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class DBasico{
+
+    private final String url = "jdbc:postgresql://localhost/teste";
+    private final String user = "postgres";
+    private final String password = "root";
+
+    public Connection connect() {
+        Connection databaseConnect = null;
+        try {
+            databaseConnect = DriverManager.getConnection(url, user, password);
+            System.out.println("Connected to the PostgreSQL server successfully.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return databaseConnect;
+    }
+    
+    /* Aqui Estamos em testes */
+
+    private void displayUsuarios(ResultSet rs) throws SQLException {
+        while (rs.next()) {
+            System.out.println(rs.getString("id") + "\t"
+                    + rs.getString("nome"));
+        }
+    }
+    
+    public void getUsuario() {
+
+        String SQL = "SELECT id, nome FROM usuario";
+
+        try (Connection databaseConnect = connect();
+                Statement stmt = databaseConnect.createStatement();
+                ResultSet rs = stmt.executeQuery(SQL)) {
+        	displayUsuarios(rs);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    public void databaseCloseConnection() {
+    	Connection databaseConnect = null;
+    }
+    
+    public void insertUsuario() {
+    	
+    	String SQL = "INSERT INTO usuario VALUES (8,'Altas loucuras')";
+    	
+    	try {
+    			Connection databaseConnect = connect();
+                Statement stmt = databaseConnect.createStatement();
+                stmt.executeQuery(SQL);
+                
+                System.out.println("Inserido com sucesso!\n");
+    		
+    	} catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+}
