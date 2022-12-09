@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:parking_spot/app/screens/home_screen.dart';
+import 'package:get/get.dart';
 import '../components/menu_component.dart';
 import '../controllers/parking_spot_controller.dart';
 import '../models/parking_spot_model.dart';
@@ -41,7 +42,6 @@ class _MyDetailScreenState extends State<DetailScreen> {
     _block.text             = widget.objeto.block;
   }
 
-  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,7 +132,14 @@ class _MyDetailScreenState extends State<DetailScreen> {
                   textAlign: TextAlign.center,
                   controller: _block,
                   keyboardType: TextInputType.number,
-                  style: TextStyle(fontSize: 16)),
+                  style: TextStyle(fontSize: 16)
+              ),
+
+              ElevatedButton(
+                  child: Text("Voltar"),
+                  onPressed: () => Get.back(),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.fromLTRB(20, 10, 20, 10))
+              )
 
             ]),
       ),

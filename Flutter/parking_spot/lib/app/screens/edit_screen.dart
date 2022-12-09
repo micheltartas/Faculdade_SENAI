@@ -168,7 +168,15 @@ class _MyEditScreenState extends State<EditScreen> {
                           colorText: Colors.white);
                     }
                   },
-                  child: Text("Salvar"))
+                  child: Text("Salvar"),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.fromLTRB(20, 10, 20, 10))
+              ),
+
+              ElevatedButton(
+                  child: Text("Voltar"),
+                  onPressed: () => Get.back(),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.fromLTRB(20, 10, 20, 10))
+              )
             ]),
       ),
     );

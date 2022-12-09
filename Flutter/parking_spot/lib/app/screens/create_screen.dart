@@ -7,6 +7,7 @@ import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import '../components/menu_component.dart';
 import '../controllers/parking_spot_controller.dart';
 import '../models/parking_spot_model.dart';
+import 'home_screen.dart';
 
 class CreatePage extends StatefulWidget {
   const CreatePage({Key? key, required this.title}) : super(key: key);
@@ -154,7 +155,16 @@ class _AboutPageState extends State<CreatePage> {
                           colorText: Colors.white);
                     }
                   },
-                  child: Text("Salvar"))
+                  child: Text("Salvar"),
+
+              ),
+
+              ElevatedButton(
+                  child: Text("Voltar"),
+                  onPressed: () => Get.back(),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.fromLTRB(20, 10, 20, 10))
+              )
+
             ]),
       ),
     );
